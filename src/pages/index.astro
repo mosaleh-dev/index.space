@@ -1,16 +1,13 @@
 ---
-
+import BaseLayout from '../layouts/BaisLayout.astro'
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
+<BaseLayout title='INDEX' description="INDEX coworking space located in mansura and 6'October City" >
 		<h1>Astro</h1>
-	</body>
-</html>
+</BaseLayout>
+
+
+<style>
+h1{
+  color:hsl(var(--accent))
+}
+</style>
