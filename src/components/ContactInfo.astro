@@ -1,0 +1,92 @@
+---
+import { Icon } from "astro-icon/components";
+import { Tabs } from "astro-tabs";
+import { Image } from "astro:assets";
+---
+
+<Tabs>
+  <Fragment slot="tab-1">October</Fragment>
+  <Fragment slot="tab-2">Mansura</Fragment>
+
+  <Fragment slot="panel-1">
+    <dl>
+      <dt>
+        <Icon name={"material-symbols:phone-android"} />Phone:
+      </dt>
+      <dd><a href="tel:+01501553864">01501553864</a></dd>
+      <dt>
+        <Icon name={"material-symbols:mail-rounded"} />Email:
+      </dt>
+      <dd>
+        <a href="email:indexworkspace@gmail.com">indexworkspace@gmail.com</a>
+      </dd>
+    </dl>
+    <a href="https://maps.app.goo.gl/6CQAyZ8zthmeqSVV7">
+      <Image
+        src={import("../assets/octobermap.png")}
+        alt={"styled image for October location on the map"}
+      /></a
+    >
+  </Fragment>
+
+  <Fragment slot="panel-2">
+    <dl>
+      <dt>
+        <Icon name={"material-symbols:phone-android"} />Phone:
+      </dt>
+      <dd><a href="tel:+0502366881">0502366881</a></dd>
+      <dt>
+        <Icon name={"material-symbols:mail-rounded"} />Email:
+      </dt>
+      <dd>
+        <a href="email:indexworkspace@gmail.com">indexworkspace@gmail.com</a>
+      </dd>
+    </dl>
+    <a href="https://maps.app.goo.gl/NyUDZR2Jrs2jwY7Y9">
+      <Image
+        src={import("../assets/mansuramap.png")}
+        alt={"styled image for mansura location on the map"}
+      /></a
+    >
+  </Fragment>
+</Tabs>
+<style>
+  img {
+    padding: 0.5rem;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    margin-block-end: 20px;
+  }
+  dt {
+    display: flex;
+    gap: 0.5rem;
+    color: white;
+    align-items: center;
+    position: relative;
+  }
+  ul {
+    list-style: none;
+  }
+  a {
+    color: hsl(var(--accent));
+  }
+</style>
+
+<style is:global>
+  .tab {
+    color: hsl(var(--accent) / 70%);
+  }
+  .tabs nav {
+    gap: 1rem;
+  }
+
+  .tab-selector:checked ~ .tab {
+    color: hsl(var(--accent));
+  }
+
+  .panel {
+    border-block-start: 1px solid hsl(var(--accent) / 70%);
+    padding-block-start: 0.5rem;
+  }
+</style>

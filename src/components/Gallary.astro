@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/GallaryImages/*.{jpeg,jpg,png,gif}",
+);
+---
+
+<section>
+  <h2>Gallary</h2>
+  <!-- TODO:add tags filter maybe using tabs component -->
+  <!-- <a>all</a> -->
+  <!-- <a>mansure</a> -->
+  <!-- <a>october</a> -->
+  <ul>
+    {
+      Object.values(images).map((image) => (
+        <li>
+          <Image src={image()} alt={"image for the index cowroking space"} />
+        </li>
+      ))
+    }
+  </ul>
+</section>
+<style>
+  section {
+    background: hsl(var(--primary));
+    margin-inline: -2rem;
+    padding-inline: 2rem;
+    padding-block: 2rem;
+  }
+  h2 {
+    text-align: center;
+    color: hsl(var(--accent));
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+  li {
+    position: relative;
+    flex-basis: 300px;
+    margin-block: 1rem;
+    list-style: none;
+  }
+  img {
+    border-radius: 24px;
+    min-width: min(98%, 400px);
+    max-height: 400px;
+    object-fit: cover;
+  }
+</style>

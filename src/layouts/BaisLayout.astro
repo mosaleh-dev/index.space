@@ -1,66 +1,95 @@
 ---
 interface Props {
-	title: string;
-  description:string;
+  title: string;
+  description: string;
 }
 
-const { title,description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-img,
-picture,
-svg {
-  max-width: 100%;
-  display: block;
-}
-
-:root {
-  --primarry: 198 51% 20%;
-  --accent: 29 87% 64%;
-  --gray: 246 15% 87%;
-  --of-white: 0 0 97%;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 130%;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-}
 
-body {
-  font-family: "Figtree", sans-serif;
-  font-weight: 400;
-  line-height: 1.55;
-  max-width: 2000px;
-  margin: auto;
-  background-color: hsl(var(--primarry));
-  color: hsl(var(--secondary));
-}
+  img,
+  picture,
+  svg {
+    max-width: 100%;
+    display: block;
+  }
+
+  :root {
+    --primary: 198 51% 20%;
+    --accent: 29 87% 64%;
+    --gray: 246 15% 87%;
+    --of-white: 0 0 97%;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Figtree", sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+    max-width: 2000px;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--secondary));
+    padding-inline: 2rem;
+    padding-block: 0;
+  }
+
+  .wrapper {
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  main {
+    display: grid;
+    gap: var(--size-fluid-6);
+    padding: var(--size-fluid-5) var(--size-fluid-2);
+  }
+  .container {
+    width: 100%;
+    max-width: 1500px;
+    margin: auto;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
 </style>

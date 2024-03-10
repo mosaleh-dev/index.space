@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class="incup">
+  <!-- TODO: unremove optimization -->
+  <Image
+    src={import("../assets/incup.png")}
+    alt={"incup logo with coffe dicoration"}
+  />
+  <p>
+    Experience the perfect blend of work and pleasure at our <storng
+      class="bold"
+      >October branch,
+    </storng>in collaboration with InCup. With the mantra "Sip, Start, Succeed,"
+    elevate your workdays with premium coffee and delightful sweets. Join us in
+    creating an environment where productivity seamlessly intertwines with
+    enjoyment. Welcome to a workspace designed for success!
+  </p>
+</div>
+<style>
+  .incup {
+    background: #c54136;
+    margin-inline: -2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    flex: 1;
+    min-width: min(350px, 100%);
+    padding: 2rem;
+    padding-block-start: 0rem;
+    text-wrap: balance;
+  }
+  .incup img {
+    width: 100vw;
+    height: auto;
+  }
+  /* TODO: research why strong selector is not working */
+  strong,
+  .bold {
+    font-weight: 700;
+  }
+</style>

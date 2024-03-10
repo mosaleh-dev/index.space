@@ -1,0 +1,109 @@
+---
+import { Icon } from "astro-icon/components";
+const benefits = [
+  {
+    name: "Comfortable Chairs",
+    description:
+      "Elevate your work experience with ergonomically designed, comfortable chairs ensuring both support and relaxation throughout your productive sessions.",
+    icon: "material-symbols:chair-alt-outline-rounded",
+  },
+  {
+    name: "Monitored by Cams",
+    description:
+      "Your safety is our priority – our coworking space is equipped with 24/7 surveillance cameras to provide a secure and protected work environment.",
+    icon: "material-symbols:visibility-lock-outline-rounded",
+  },
+  {
+    name: "Fully Air-Conditioned",
+    description:
+      "Stay comfortable and focused with our fully air-conditioned workspace, ensuring an optimal working environment regardless of the weather outside.",
+    icon: "material-symbols:air-purifier-gen-outline-sharp",
+  },
+  {
+    name: "Fast Internet Access",
+    description:
+      "Stay connected seamlessly with high-speed internet access, enabling you to work efficiently and collaborate effortlessly.",
+    icon: "material-symbols:speed-outline-rounded",
+  },
+  {
+    name: "Coffee Corner",
+    description:
+      "Recharge your creativity at our coffee corner, offering the finest brews to enhance your focus and productivity throughout the day.",
+    icon: "material-symbols:coffee-maker-outline-rounded",
+  },
+  // {
+  //   name: "Praying Area",
+  //   description:
+  //     "Catering to diverse needs, our coworking space includes a dedicated praying area, ensuring a respectful and inclusive environment for all. Find peace in our inclusive praying area, designed for spiritual moments that bring calm and focus to your workday.",
+  //   icon: "material-symbols:prayer-times-outline",
+  // },
+  // {
+  //   name: "Modern Design",
+  //   description:
+  //     "Experience a workspace with modern aesthetics and design, providing an inspiring backdrop that stimulates innovation and forward-thinking.",
+  //   icon: "",
+  // },
+  {
+    name: "Rest Area",
+    description:
+      "Take rejuvenating breaks in our comfortable rest area, designed to offer a retreat for relaxation, fostering a healthy work-life balance.",
+    icon: "material-symbols:chair-outline",
+  },
+  // {
+  //   name: "24 Hours",
+  //   description:
+  //     "Enjoy the flexibility of a 24-hour coworking space, accommodating your work schedule and ensuring you have access whenever inspiration strikes.",
+  //   icon: "",
+  // },
+];
+---
+
+<section>
+  <h2 class="h2">WHY INDEX</h2>
+  <ul>
+    {
+      benefits.map((benefit) => (
+        <li class="benefit">
+          <Icon
+            name={benefit.icon}
+            color={"hsl(var(--accent))"}
+            width={50}
+            height={50}
+          />
+          <h3>{benefit.name}</h3>
+          <p>{benefit.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+<style>
+  /* TODO:fix the responsive layout centering for middel size devices */
+  section {
+    padding-block: 2rem;
+  }
+  h2 {
+    text-align: center;
+    color: hsl(var(--accent));
+  }
+
+  h3,
+  p {
+    color: white;
+  }
+  p {
+    text-wrap: balance;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+  li {
+    margin-block: 1rem;
+    list-style: none;
+    padding: 0.5 rem;
+    width: min(98%, 300px);
+  }
+</style>

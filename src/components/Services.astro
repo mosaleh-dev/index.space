@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/Services/*.{jpeg,jpg,png,gif}",
+);
+const services = [
+  {
+    name: "shared area",
+    image: "/shared.jpg",
+    alt: "Tables and chairs in a communal space",
+  },
+  {
+    name: "cabin",
+    image: "/cabin.png",
+    alt: "A cozy enclosed room with two chairs",
+  },
+  {
+    name: "meeting room",
+    image: "/room.png",
+    alt: "A meeting space furnished with multiple chairs",
+  },
+];
+---
+
+<section id="services">
+  <h2>OUR Services</h2>
+  <ul>
+    {
+      services.map((service) => (
+        <li class="benefit">
+          <Image
+            src={images["../assets/Services" + service.image]()}
+            alt={service.alt}
+          />
+          <h3>{service.name}</h3>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+<style>
+  section {
+    background: white;
+    margin-inline: -2rem;
+    padding: 2rem;
+  }
+  h2 {
+    text-align: center;
+    color: hsl(var(--accent));
+  }
+  h3 {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  ul {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+  }
+  li {
+    position: relative;
+    flex: 1;
+    flex-basis: 300px;
+    margin-block: 1rem;
+    list-style: none;
+    width: max(28vw, 100%);
+    height: 200px;
+  }
+  img {
+    border-radius: 24px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+</style>

@@ -1,0 +1,468 @@
+---
+import { Icon } from "astro-icon/components";
+import PricingTable from "./PricingTable.astro"
+const prices = [
+  {
+    heading: "shared area",
+    benefits: [
+      "qiet and active",
+      "free wifi access",
+      "Free Hot drink*",
+      "24 hours from entry",
+    ],
+    notice: ["not allowed to speek"],
+    pricePeriod:"day",
+    priceAmount:"50",
+  },
+  {
+    heading: "Private Cabin",
+    benefits: [
+      "fit 2 persons",
+      "More privacy",
+      "Allowence for chatting",
+      "free wifi access",
+    ],
+    notice: ["Exclusive in October Branch"],
+    pricePeriod:"hour",
+    priceAmount:"50",
+  },
+  {
+    heading: "Meating Room",
+    benefits: [
+      "Front desk services",
+      "Data Projector",
+      "High reslution Monitor",
+      "Capacity up to 10 persons",
+    ],
+    notice: [],
+    pricePeriod:"hour",
+    priceAmount:"50",
+  },
+];
+---
+
+<section id="pricing" >
+  <div class="">
+    <h2>Pricing</h2>
+    <ul class="cs-card-group">
+
+{prices.map((price)=>(
+      <li class="cs-item">
+
+        <div class="cs-flex">
+          <h3 class="cs-h3">{price.heading}</h3>
+      {/* TODO: refactor svg to use <use> tag  */}
+          <svg
+            class="cs-mask"
+            id="Layer_2-1518"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            viewBox="0 0 371.1 166.7"
+            ><g id="Layer_1-2-1518"
+              ><path
+                stroke="var(--maskBorder)"
+                d="m12.82,19.67C2.01,56.2-7.54,129.35,28.82,159.67c1.42,1.2,2.98,1.42,5,2,2.02.58,4.85,1.18,7,1,98.77-7.85,195.12-12.76,295-7,6.59.39,10.92-1.66,14-6,5.48-7.78,9-16.68,11-27,6.1-30.94,12.55-63.62-2-95-8.96-19.27-30.85-24.93-57-25-108.29-.23-195.35.39-262,2-16.86.41-23.17,2.01-27,15Z"
+              ></path><polygon
+                fill="var(--maskBG)"
+                points="20.59 9.8 62.59 5.55 255.62 4 322.31 4.17 345.42 13.95 355.8 24.33 365.37 47.45 367.1 58.74 367.1 86.58 362.94 109.29 353.7 143.84 344.08 154.33 335.4 155.73 281.72 153.62 161.51 155.73 67.65 160.68 35.09 162.7 20.59 150.1 7.32 123.07 3.05 90.27 7.13 50.18 20.59 9.8"
+              ></polygon><path
+                stroke="var(--maskBorder)"
+                stroke-width="8px"
+                fill="none"
+                d="m13.73,20.9C2.97,57.11-6.54,129.63,29.67,159.69c1.42,1.19,2.97,1.41,4.98,1.98,2.01.57,4.83,1.17,6.97.99,98.36-7.78,194.32-12.65,293.78-6.94,6.56.38,10.87-1.64,13.94-5.95,5.46-7.71,8.96-16.53,10.95-26.77,6.07-30.67,12.5-63.07-1.99-94.18-8.92-19.1-30.72-24.72-56.76-24.78-107.84-.23-194.55.38-260.92,1.98-16.79.41-23.07,1.99-26.89,14.87Z"
+              ></path></g
+            ></svg
+          >
+        </div>
+        <!--Put in a wrapper div so we can add the card styles here and let the top cs-flex group rest on top of it and use a negative margin to make it overlap -->
+        <div class="cs-wrapper">
+          <ul class="cs-ul">
+{price.benefits.map((benefit)=>(
+            <li class="cs-li">
+{benefit}
+              <Icon
+                name={"mdi:check-circle-outline"}
+                width={24}
+                height={24}
+                color={"hsl(var(--accent))"}
+              />
+            </li>))}
+{price.notice.map((notice)=>(
+            <li class="cs-li cs-disabled">
+            {notice}
+              <Icon
+                name={"mdi:check-circle-outline"}
+                width={24}
+                height={24}
+                color={"hsl(var(--gray))"}
+              />
+            </li>))}
+          </ul>
+        <span style="font-size:1rem;color:gray">starting from</span>
+          <div class="cs-info">
+            <span class="cs-price" >
+{price.priceAmount} EGP <span class="cs-duration">/{price.pricePeriod}</span>
+            </span>
+            <a href="#contact" class="cs-button-solid">Contact Us</a>
+          </div>
+          <svg
+            class="cs-blob"
+            width="273"
+            height="136"
+            viewBox="0 0 273 136"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M255.232 8.51748C307.391 -27.6114 340.366 67.0792 304.261 114.801C204.089 247.201 72.0026 208.615 16.9974 154.545C-38.0078 100.476 54.1202 43.9093 140.688 70.8035C227.255 97.6976 203.073 44.6464 255.232 8.51748Z"
+              fill="hsl(var(--primary))"></path>
+          </svg>
+        </div>
+      </li>
+        ))}
+    </ul>
+  </div>
+ <details>
+  <summary>Price Details</summary>
+    <PricingTable></PricingTable>
+</details>
+</section>
+<style>
+
+h2{
+  text-align: center;
+  font-size: 2rem;
+  margin:2rem;
+  color:hsl(var(--accent))
+}
+  section {
+    padding: 2rem;
+    margin-inline: -2rem;
+    background: white;
+  }
+
+
+  .cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+  }
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  section {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  section:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: hsl(var(--accent));
+    opacity: 0.05;
+    display: block;
+    top: 0;
+    left: 0;
+  }
+   .cs-container {
+    width: 100%;
+    /* changes to 1280px at tablet */
+    max-width: 34.375rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
+    position: relative;
+  }
+   .cs-content {
+    /* set text align to left if content needs to be left aligned */
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: center;
+  }
+   .cs-title {
+    margin: 0;
+    max-width: 19ch;
+  }
+   .cs-card-group {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 16px - 20px */
+    gap: clamp(1rem, 1.8vw, 1.25rem);
+  }
+   .cs-item {
+    list-style: none;
+    width: 100%;
+    max-width: 28.875rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transition: border-color 0.3s;
+  }
+   .cs-item:hover .cs-wrapper {
+    border-color: hsl(var(--accent));
+  }
+   .cs-item:hover .cs-mask {
+    --maskBorder: hsl(var(--accent));
+  }
+   .cs-flex {
+    text-align: center;
+    margin-bottom: -2rem;
+    padding: 3rem 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 10;
+  }
+   .cs-desc {
+    font-size: 1.25rem;
+    text-align: inherit;
+    line-height: 1.2em;
+    font-weight: 700;
+    margin: 0;
+    color: var(--bodyTextColor);
+    display: block;
+  }
+   .cs-h3 {
+    font-size: 1.9375rem;
+    text-align: inherit;
+    line-height: 1.2em;
+    font-weight: 900;
+    margin: 0;
+    color: hsl(var(--primary));
+    display: block;
+  }
+   .cs-mask {
+    --maskBG: #fff;
+    --maskBorder: #e8e8e8;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+   .cs-mask path {
+    transition: stroke 0.3s;
+  }
+   .cs-wrapper {
+    height: 100%;
+    /* 24px - 40px left & right */
+    /* 24px - 32px bottom */
+    padding: 2.5rem clamp(1.5rem, 3.5vw, 2.5rem) clamp(1.5rem, 3vw, 2rem);
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 2rem;
+    border: 1px solid #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    transition: border-color 0.3s;
+  }
+   .cs-ul {
+    /* 24px - 40px */
+    padding: 0 0 clamp(1.5rem, 3vw, 2.5rem) 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* 8px - 12px */
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
+    position: relative;
+  }
+   .cs-li {
+    /* 14px - 16px */
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    list-style: none;
+    line-height: 1.5em;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--bodyTextColor);
+    display: flex;
+    justify-content: space-between;
+    /* push everything to the top so if the li goes to two lines the icon stays at the top */
+    align-items: flex-start;
+    gap: 1rem;
+  }
+   .cs-li.cs-disabled {
+    opacity: 0.5;
+  }
+   .cs-li.cs-disabled .cs-icon {
+    filter: grayscale(1) brightness(300%);
+  }
+   .cs-icon {
+    width: 1.5rem;
+    height: auto;
+    display: block;
+  }
+   .cs-info {
+    margin-top: auto;
+    /* 16px - 24px */
+    padding-top: clamp(1rem, 2vw, 1.5rem);
+    box-sizing: border-box;
+    border-top: 1px solid #e8e8e8;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+  }
+   .cs-price {
+    /* 31px - 39px */
+    font-size: clamp(1.9375rem, 4vw, 2.4375rem);
+    line-height: 1.2em;
+    font-weight: 900;
+    margin: 0;
+    color: hsl(var(--primary));
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+   .cs-duration {
+    font-size: 1.25rem;
+    display: block;
+    transform: translateY(0.14rem);
+  }
+   .cs-button-solid {
+    font-size: 1rem;
+    /* 46px - 56px */
+    line-height: clamp(2.875em, 5.5vw, 3.5em);
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    padding: 0 2rem;
+    border-radius: 3.125rem;
+    background-color: hsl(var(--accent));
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+  }
+   .cs-button-solid:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #000;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+   .cs-blob {
+    opacity: 0.1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+   .cs-button-solid {
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+   .cs-background {
+    --backgroundBG: #fff;
+    width: 100%;
+    min-width: 120rem;
+    height: auto;
+    position: absolute;
+    left: 0;
+  }
+   .cs-background-top {
+    top: 0;
+  }
+   .cs-background-bottom {
+    bottom: 0;
+    transform: rotateX(180deg);
+  }
+}
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+   .cs-card-group {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: nowrap;
+  }
+}
+/* Large Desktop - 1300px */
+@media only screen and (min-width: 81.25rem) {
+   .cs-info {
+    flex-direction: row;
+  }
+}
+
+
+
+
+  details[open] summary ~ * {
+  animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  width: 100%;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  cursor: pointer;
+  font-weight: 300;
+  list-style: none;
+  color: hsl(var(--primary)/70%);
+}
+
+details summary:after {
+  content: ">";
+  color: hsl(var(--primary)/70%);
+  position: absolute;
+  font-size: 1.75rem;
+  line-height: 0;
+  margin-top: 0.75rem;
+  left: 0;
+  font-weight: 200;
+  transform-origin: center;
+  transition: 200ms linear;
+}
+details[open] summary:after {
+  transform: rotate(90deg);
+  font-size: 2rem;
+}
+details summary {
+  outline: 0;
+}
+
+</style>

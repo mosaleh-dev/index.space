@@ -1,0 +1,188 @@
+---
+const waNumber = "+201501553864";
+import ContactInfo from "./ContactInfo.astro";
+---
+
+<h2>Contact Us</h2>
+<section id="contact">
+  <div class="contact-info">
+    <ContactInfo />
+  </div>
+  <form
+    id="contact_form"
+    name="ContactForm"
+    method="post"
+    data-wanumber={waNumber}
+  >
+    <fieldset>
+      <legend>Contact Information</legend>
+
+      <label for="name">
+        <span>Name:</span>
+        <input
+          required
+          type="text"
+          id="name"
+          name="name"
+          aria-label="Your Name"
+          placeholder="khaled asaad"
+        />
+      </label>
+
+      <label for="email">
+        <span>Email:</span>
+        <input
+          required
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@mail.com"
+          aria-label="Your Email"
+        />
+      </label>
+
+      <label for="howDidYouFindUs">
+        <span>How did you find us?</span>
+        <input
+          type="text"
+          id="howDidYouFindUs"
+          name="howDidYouFindUs"
+          placeholder="Social media, friends ...."
+          aria-label="How did you find us?"
+        />
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your Message</legend>
+
+      <label for="message">
+        <textarea
+          required
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Hey, I am interested in ......"></textarea>
+      </label>
+    </fieldset>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<script>
+  document
+    .getElementById("contact_form")
+    ?.addEventListener("submit", function (event) {
+      event.preventDefault();
+      //@ts-expect-error
+      const formData = new FormData(this);
+      let url =
+        `https://wa.me/${this.dataset.wanumber}?text=` +
+        "I found you through " +
+        formData.get("howDidYouFindUs") +
+        "%0a" +
+        formData.get("message") +
+        "%0a" +
+        "%0a" +
+        formData.get("name") +
+        "%0a" +
+        formData.get("email");
+      window?.open(url, "_blank")?.focus();
+    });
+</script>
+<style>
+  section {
+    background: hsl(var(--primary));
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  h2 {
+    color: hsl(var(--accent));
+    padding-block-start: 1rem;
+  }
+
+  .contact-info,
+  form {
+    flex: 1;
+    min-width: min(98%, 400px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  form {
+    padding: 40px;
+    padding-block-end: 78px;
+    outline: 1px solid hsl(var(--accent));
+    border-radius: 99999999px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+
+  form {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  span {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid hsl(var(--gray) / 20%);
+    transition: border-color 0.3s ease-in-out;
+    caret-color: hsl(var(--accent));
+    color: hsl(var(--gray));
+    resize: none;
+  }
+
+  input:hover,
+  textarea:hover,
+  select:hover {
+    border-bottom-color: hsl(var(--accent));
+  }
+
+  button {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--primary));
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: white;
+  }
+  input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
+    outline: 2px solid hsl(var(--accent));
+    border-radius: 4px;
+    border: none;
+  }
+</style>

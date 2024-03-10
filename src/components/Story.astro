@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section id="about">
+  <h2 class="sr-only">story</h2>
+  <div class="founders">
+    <Image
+      src={import("../assets/founderss.png")}
+      alt={"pic for the founders of index"}
+    />
+  </div>
+  <article>
+    <h3>INDEX story</h3>
+    <p>
+      Index Coworking, born out of necessity by medical students in pursuit of a
+      dedicated space, has transformed into our dream hub. It's not just a
+      workspace; it's where ideas flourish, friendships blossom, and aspirations
+      take flight. Index is our sanctuary and the heartbeat of our journey.
+    </p>
+  </article>
+</section>
+<style>
+  section {
+    padding: 2rem;
+    margin-inline: -2rem;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .founders {
+    isolation: isolate;
+    flex: 2;
+    min-width: min(100%, 360px);
+    position: relative;
+    margin-inline-start: -1rem;
+    padding-inline-start: 1rem;
+    margin-block-end: 2rem;
+  }
+  article {
+    display: inline;
+    flex: 1;
+    min-width: min(100%, 300px);
+  }
+
+  img {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin-inline-start: -2rem;
+  }
+</style>

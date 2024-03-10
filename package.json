@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.5",
+    "@iconify-json/material-symbols": "^1.1.73",
+    "@iconify-json/mdi": "^1.1.64",
     "astro": "^4.4.1",
     "astro-icon": "^1.1.0",
+    "astro-tabs": "^0.1.8",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
@@ -21,6 +24,7 @@
     "postcss": "^8.4.35",
     "postcss-jit-props": "^1.0.14",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.13.0",
+    "sass": "^1.71.1"
   }
 }

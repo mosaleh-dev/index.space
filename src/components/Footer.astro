@@ -1,0 +1,132 @@
+---
+import { Icon } from "astro-icon/components";
+const navLinks = [
+  {
+    name: "Home",
+    url: "#",
+    style: "transparent",
+  },
+  {
+    name: "Pricing",
+    url: "#pricing",
+    style: "transparent",
+  },
+  {
+    name: "About",
+    url: "#about",
+    style: "transparent",
+  },
+  {
+    name: "Contact Me",
+    url: "#contact",
+    style: "primary",
+  },
+];
+const socialAcounts = [
+  {
+    name: "Insta",
+    url: "https://www.instagram.com/indexcoworkingspace/",
+    iconName: "mdi:instagram",
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/Indexworkspace/",
+    iconName: "mdi:facebook",
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/indexworkspace",
+    iconName: "mdi:twitter",
+  },
+];
+---
+
+<footer>
+  <nav>
+    <div class="iconWrapper">
+      <Icon name={"logo"} is:inline height={17} width={20} />
+    </div>
+    <ul>
+      {
+        navLinks.map((link) => (
+          <li role="none">
+            <a href={link.url}>{link.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="row">
+    <ul>
+      {
+        socialAcounts.map((link) => (
+          <li>
+            <a
+              href={link.url}
+              aria-label={link.name}
+              target="_blank"
+              rel="noopener"
+            >
+              <Icon
+                name={link.iconName}
+                color={"hsl(var(--accent))"}
+                stroke-width={2}
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p>
+      © Copyright 2024 - <a href="" class="cs-copyright-link"
+        >made with LOVE by mosaleh
+      </a>
+    </p>
+  </div>
+</footer>
+<style>
+  footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .row,
+  nav {
+    display: flex;
+    padding: 2rem;
+    padding-inline-start: 0;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  .row {
+    border-block-start: 1px solid orange;
+  }
+  ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  [data-icon="logo"] {
+    padding: 0.3rem;
+    transform: scale(10);
+  }
+  .iconWrapper {
+    pointer-events: none;
+    min-width: 150px;
+    margin-inline-end: auto;
+    transform: translateX(2.5rem);
+  }
+  p {
+    margin-inline-start: auto;
+    color: white;
+  }
+  li {
+    align-items: center;
+  }
+</style>
