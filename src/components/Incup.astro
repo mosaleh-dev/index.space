@@ -1,5 +1,23 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+const socialAcounts = [
+  {
+    name: "Insta",
+    url: "https://www.instagram.com/incupcoffee._/",
+    iconName: "mdi:instagram",
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/incup.coffee.co",
+    iconName: "mdi:facebook",
+  },
+  {
+    name: "menu",
+    url: "https://drive.google.com/file/d/1tQbkTVMYcIr0LZTvr69pd7ilpvT5hbP5/view?usp=drive_link",
+    iconName: "material-symbols:menu-book-outline",
+  },
+];
 ---
 
 <div class="incup">
@@ -17,21 +35,36 @@ import { Image } from "astro:assets";
     creating an environment where productivity seamlessly intertwines with
     enjoyment. Welcome to a workspace designed for success!
   </p>
+  <ul>
+    {
+      socialAcounts.map((link) => (
+        <li>
+          <a
+            href={link.url}
+            aria-label={link.name}
+            target="_blank"
+            rel="noopener"
+          >
+            <Icon name={link.iconName} color={"black"} stroke-width={2} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </div>
 <style>
   .incup {
     background: #c54136;
     margin-inline: -2rem;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
     justify-content: center;
     align-items: center;
   }
   p {
     flex: 1;
     min-width: min(350px, 100%);
-    padding: 2rem;
-    padding-block-start: 0rem;
+    padding: 0rem 2rem;
     text-wrap: balance;
   }
   .incup img {
@@ -42,5 +75,12 @@ import { Image } from "astro:assets";
   strong,
   .bold {
     font-weight: 700;
+  }
+  ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 1rem 2rem 2rem 2rem;
   }
 </style>
