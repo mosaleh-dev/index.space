@@ -11,12 +11,37 @@ import { Image } from "astro:assets";
     />
   </div>
   <article>
-    <h3>INDEX story</h3>
+    <!-- TODO:pragraph lenth -->
+    <h3>Index Co-working Space: A Doctor's Prescription for Success</h3>
     <p>
-      Index Coworking, born out of necessity by medical students in pursuit of a
-      dedicated space, has transformed into our dream hub. It's not just a
-      workspace; it's where ideas flourish, friendships blossom, and aspirations
-      take flight. Index is our sanctuary and the heartbeat of our journey.
+      <span>
+        In the vibrant city of Mansoura, three doctors faced a common challenge
+        - the absence of a suitable environment for their studies and
+        professional development. Issa, Eyad, and Barakat shared a vision of
+        establishing a space where individuals like themselves could flourish.<br
+        />
+      </span><span>
+        As medical students,they often found themselves overwhelmed with
+        textbooks, longing for a place that would foster productivity and
+        collaboration.<br />
+      </span><span>
+        In 2021, driven by their passion for community and collaboration,they
+        launched Index Co-working Space - a sanctuary for ambitious
+        professionals seeking a supportive environment to pursue their dreams.
+        Their first branch, located in the heart of Mansoura, quickly became an
+        inspiration for students, freelancers, and entrepreneurs alike.<br />
+      </span><span>
+        In 2023, they embarked on a new chapter in their entrepreneurial
+        journey. The decision to open their second branch in 6th of October was
+        not taken lightly; it was a testament to their vision of creating a
+        world where anyone, regardless of their background or circumstances,
+        could thrive.<br />
+      </span><span>
+        Today, Index Co-working Space stands as a testament to the power of
+        collaboration and community. From its humble beginnings as a shared
+        dream among three doctors to its emergence as a thriving hub for
+        innovation and creativity.
+      </span>
     </p>
   </article>
 </section>
@@ -30,8 +55,9 @@ import { Image } from "astro:assets";
   }
   .founders {
     isolation: isolate;
-    flex: 2;
-    min-width: min(100%, 360px);
+    flex: 1;
+    align-self: center;
+    min-width: min(100%, 620px);
     position: relative;
     margin-inline-start: -1rem;
     padding-inline-start: 1rem;
@@ -40,7 +66,7 @@ import { Image } from "astro:assets";
   article {
     display: inline;
     flex: 1;
-    min-width: min(100%, 300px);
+    min-width: min(100%, 360px);
   }
 
   img {
