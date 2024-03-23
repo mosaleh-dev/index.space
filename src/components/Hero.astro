@@ -1,32 +1,52 @@
 ---
 import { Image } from "astro:assets";
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/HeroImages/*.{jpeg,jpg,png,gif}",
-);
+//import like this because i have not figured out how to dynamic import with lqip with vite
+import img1 from "../assets/HeroImages/1.png";
+import img1Lqip from "../assets/HeroImages/1.png?lqip";
+import img2 from "../assets/HeroImages/2.jpg";
+import img2Lqip from "../assets/HeroImages/2.jpg?lqip";
+import img3 from "../assets/HeroImages/3.jpg";
+import img3Lqip from "../assets/HeroImages/3.jpg?lqip";
 ---
 
 <section id="home" class="carousel" aria-labelledby="carouselheading">
   <!-- TODO:add heading for sr and alt text -->
-  <!-- TODO: consider calcluting len while doing map to iterate once:-->
-  <!-- TODO:handel if ther is no images -->
   <ul>
-    {
-      Object.values(images).map((image, idx) => (
-        <li id={"slide-" + (idx + 1)}>
-          <Image
-            src={image()}
-            alt="3D rendering of an imaginary orange planet in space"
-          />
-        </li>
-      ))
-    }
+    <li id="slide-1">
+      <Image
+        src={img1}
+        alt="test"
+        style={{
+          backgroundImage: `url("${img1Lqip.lqip}")`,
+          backgroundSize: "cover",
+        }}
+      />
+    </li>
+    <li id="slide-2">
+      <Image
+        src={img2}
+        alt="test"
+        style={{
+          backgroundImage: `url("${img2Lqip.lqip}")`,
+          backgroundSize: "cover",
+        }}
+      />
+    </li>
+    <li id="slide-3">
+      <Image
+        src={img3}
+        alt="test"
+        style={{
+          backgroundImage: `url("${img3Lqip.lqip}")`,
+          backgroundSize: "cover",
+        }}
+      />
+    </li>
   </ul>
   <div class="slider-nav">
-    {
-      Object.values(images).map((image, idx) => (
-        <a href={"#slide-" + (idx + 1)} />
-      ))
-    }
+    <a href="#slide-1" aria-label="show slide 1"></a>
+    <a href="#slide-2" aria-label="show slide 2"></a>
+    <a href="#slide-3" aria-label="show slide 3"></a>
   </div>
 </section>
 <script></script>
