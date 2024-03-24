@@ -1,51 +1,224 @@
-<!-- Mansura Branch -->
-<table>
-  <thead>
-    <tr>
-      <th colspan="6">Mansura Branch</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="6">Shared Area: Hour - 20, Day - $50 (Free Hot Drink)</td>
-    </tr>
-    <tr>
-      <td colspan="6">Meeting Room: Fit 5 - 50 hours, Fit 10 - 70 hours</td>
-    </tr>
-    <tr>
-      <td colspan="6"
-        >Packages: Stander - 20 hours for $400, Premium - 40 hours for $600,
-        Elite - 100 hours for $900</td
-      >
-    </tr>
-  </tbody>
-</table>
+---
+import { Tabs } from "astro-tabs";
+---
 
-<!-- October Branch -->
-<table>
-  <thead>
-    <tr>
-      <th colspan="6">October Branch</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="6"
-        >Shared Area: Hour - 25, Day - $70, Week - $200, Month - $700</td
-      >
-    </tr>
-    <tr>
-      <td colspan="6">Meeting Room: Fit 5 - 50 hours, Fit 10 - 70 hours</td>
-    </tr>
-    <tr>
-      <td colspan="6">Cabin: Hour - 50, Day - $850</td>
-    </tr>
-  </tbody>
-</table>
+<Tabs>
+  <Fragment slot="tab-1">October</Fragment>
+  <Fragment slot="tab-2">Mansura</Fragment>
+
+  <!-- TODO:Make Pricing Dynamic  -->
+  <Fragment slot="panel-1">
+    <!-- October Branch -->
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">Shared Space Packages</th>
+        </tr>
+        <tr>
+          <th>Hours</th>
+          <th>Price </th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12 H</td>
+          <td>50 L.E</td>
+          <td>Free wifi</td>
+        </tr>
+        <tr>
+          <td>24 H</td>
+          <td>80 L.E</td>
+          <td
+            >Free Wifi , Hot Drink<br />
+            24 Hours from entry time</td
+          >
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th colspan="4">Shared Space Supscription</th>
+        </tr>
+        <tr>
+          <th>Package</th>
+          <th>1 Weak </th>
+          <th>2 Weaks </th>
+          <th>1 month </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Stander</td>
+          <td>399 L.E</td>
+          <td>799 L.E</td>
+          <td>1399 L.E</td>
+        </tr>
+        <tr>
+          <td>Premuim</td>
+          <td>455 L.E</td>
+          <td>899 L.E</td>
+          <td>1599 L.E</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">Capin</th>
+        </tr>
+        <tr>
+          <th>Hours</th>
+          <th>Price </th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 H</td>
+          <td>50 L.E</td>
+          <td>Free wifi</td>
+        </tr>
+        <tr>
+          <td>24 H</td>
+          <td>599 L.E</td>
+          <td> 24 Hours from entry time</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th colspan="5">Meating Rooms</th>
+        </tr>
+        <tr>
+          <th>Capacity</th>
+          <th>1 Hour </th>
+          <th>5 Hours </th>
+          <th>10 Hours </th>
+          <th>Full Day </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5 People</td>
+          <td>70 L.E</td>
+          <td>245 L.E</td>
+          <td>420 L.E</td>
+          <td>840 L.E</td>
+        </tr>
+        <tr>
+          <td>10 People</td>
+          <td>90 L.E</td>
+          <td>315 L.E</td>
+          <td>630 L.E</td>
+          <td>999 L.E</td>
+        </tr>
+      </tbody>
+    </table>
+  </Fragment>
+
+  <Fragment slot="panel-2">
+    <!-- Mansura Branch -->
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">Shared Space Packages</th>
+        </tr>
+        <tr>
+          <th>Hours</th>
+          <th>Price </th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12 H</td>
+          <td>50 L.E</td>
+          <td>Free wifi</td>
+        </tr>
+        <tr>
+          <td>24 H</td>
+          <td>80 L.E</td>
+          <td
+            >Free Wifi , Hot Drink<br />
+            24 Hours from entry time</td
+          >
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th colspan="5">Shared Space Supscription</th>
+        </tr>
+        <tr>
+          <th>Package</th>
+          <th>Hours </th>
+          <th>Valid </th>
+          <th>Price</th>
+          <th>PPH</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Basic</td>
+          <td>60 Hours</td>
+          <td>10 Days</td>
+          <td>540 L.E</td>
+          <td>9 L.E</td>
+        </tr>
+        <tr>
+          <td>Standerd</td>
+          <td>100 Hours</td>
+          <td>20 Days</td>
+          <td>699 L.E</td>
+          <td>7 L.E</td>
+        </tr>
+        <tr>
+          <td>Premuim</td>
+          <td>200 Hours</td>
+          <td>30 Days</td>
+          <td>999 L.E</td>
+          <td>5 L.E</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">Meating Rooms</th>
+        </tr>
+        <tr>
+          <th>Capacity</th>
+          <th>Hours</th>
+          <th>Price </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5 People</td>
+          <td>1 Hour</td>
+          <td>50 L.E</td>
+        </tr>
+      </tbody>
+    </table>
+  </Fragment>
+</Tabs>
+
 <style>
   table {
     width: 100%;
     border-collapse: collapse;
+  }
+  table thead tr:nth-child(2) th {
+    background-color: hsl(var(--primary) / 85%);
   }
 
   th,
@@ -68,5 +241,22 @@
   }
   tr {
     background-color: hsl(var(--primary) / 5%);
+  }
+</style>
+<style is:global>
+  #pricing .tab {
+    color: hsl(var(--primary) / 70%);
+  }
+  #pricing .tabs nav {
+    gap: 1rem;
+  }
+
+  #pricing .tab-selector:checked ~ .tab {
+    color: hsl(var(--primary));
+  }
+
+  #pricing .panel {
+    border-block-start: 1px solid hsl(var(--primary) / 70%);
+    padding-block-start: 0.5rem;
   }
 </style>

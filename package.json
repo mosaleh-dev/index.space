@@ -25,6 +25,15 @@
     "postcss-jit-props": "^1.0.14",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
-    "sass": "^1.71.1"
+    "sass": "^1.71.1",
+    "vite-plugin-lqip": "^0.0.5"
+  },
+  "overrides": {
+    "astro-compress": {
+      "sharp": "0.33.2"
+    },
+    "astro": {
+      "sharp": "0.33.2"
+    }
   }
 }
