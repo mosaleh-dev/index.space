@@ -3,26 +3,61 @@ import { Image } from "astro:assets";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/GallaryImages/*.{jpeg,jpg,png,gif}",
 );
+type imagePropertie = {
+  location: string;
+  type: string;
+  alt: string;
+  src: Function;
+};
+let imagesDeta: imagePropertie[] = [];
+Object.entries(images).forEach(([key, value]) => {
+  const imagePath = key.split("/").reverse()[0];
+  const [location, type, alt] = imagePath.split(/[.,]/);
+  const imageProperties = {
+    location,
+    type,
+    alt,
+    src: value,
+  };
+
+  imagesDeta.push(imageProperties);
+});
 ---
 
 <section id="gallary">
   <h2>Gallary</h2>
-  <!-- TODO:add tags filter maybe using tabs component -->
-  <!-- <a>all</a> -->
-  <!-- <a>mansure</a> -->
-  <!-- <a>october</a> -->
+  <div class="filters">
+    <input type="radio" name="imageType" id="All" checked />
+    <label for="All">All</label>
+
+    <input type="radio" name="imageType" id="Shared" />
+    <label for="Shared">Shared</label>
+
+    <input type="radio" name="imageType" id="Cabin" />
+    <label for="Cabin">Cabin</label>
+
+    <input type="radio" name="imageType" id="Rooms" />
+    <label for="Rooms">Rooms</label>
+  </div>
   <ul>
     {
-      Object.values(images).map((image) => (
-        <li>
-          <Image src={image()} alt={"image for the index cowroking space"} />
+      imagesDeta.map((image) => (
+        <li data-service={image.type}>
+          <figure>
+            <Image src={image.src()} alt={image.alt} />
+            <figcaption>{image.location}</figcaption>
+          </figure>
         </li>
       ))
     }
   </ul>
+  <input type="radio" name="show" id="show" autocomplete="off" />
+  <label for="show" class="show btn">Show More</label>
+  <div class="fade"></div>
 </section>
 <style>
   section {
+    position: relative;
     background: hsl(var(--primary));
     margin-inline: -2rem;
     padding-inline: 2rem;
@@ -31,6 +66,46 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   h2 {
     text-align: center;
     color: hsl(var(--accent));
+  }
+
+  .filters {
+    padding-inline: 2rem;
+    background: hsl(var(--accent) / 10%);
+    padding-block: 0.5rem;
+    border-radius: 24px;
+    display: flex;
+    gap: 1rem;
+  }
+  .filters:has(#All:checked) ~ ul li[data-service],
+  .filters:has(#Shared:checked) ~ ul li[data-service="shared"],
+  .filters:has(#Cabin:checked) ~ ul li[data-service="capin"],
+  .filters:has(#Rooms:checked) ~ ul li[data-service="room"] {
+    position: relative;
+    opacity: 100;
+  }
+
+  label {
+    color: hsl(var(--accent) / 70%);
+  }
+
+  input[type="radio"]:checked + label {
+    color: hsl(var(--accent));
+  }
+
+  /* used position and opacity to be accesible in aria tree , hiding data-service as intial display*/
+  input[type="radio"],
+  li[data-service] {
+    position: absolute;
+    opacity: 0;
+  }
+  figcaption {
+    position: absolute;
+    border-radius: 0px 14px 14px 0px;
+    background: hsl(var(--accent));
+    color: hsl(var(--primary));
+    padding: 0.128rem 0.5rem;
+    bottom: 7%;
+    left: 0;
   }
 
   ul {
@@ -48,8 +123,63 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   }
   img {
     border-radius: 24px;
-    min-width: min(98%, 400px);
-    max-height: 400px;
+    min-width: min(98%, 300px);
+    max-height: 300px;
     object-fit: cover;
+  }
+
+  label.show {
+    display: none;
+  }
+  @media only screen and (max-width: 767px) {
+    /* to make image take full width */
+    li {
+      flex-basis: unset;
+    }
+    /* for show more section we set initial max height */
+    ul {
+      position: relative;
+      max-height: 900px;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    label.show {
+      display: block;
+    }
+    .btn {
+      color: hsl(var(--primary));
+      background: hsl(var(--accent) / 90%);
+      border-radius: 1.5em;
+      left: 30%;
+      bottom: 1.5rem;
+      padding: 1rem;
+      text-decoration: none;
+      width: 40%;
+      position: absolute;
+      z-index: 100;
+      text-align: center;
+    }
+
+    /* changed place and used has to avoid jump that happend when click in radio */
+    section:has(#show:checked) ul {
+      max-height: initial;
+    }
+    section:has(#show:checked) .btn,
+    section:has(#show:checked) .fade {
+      display: none;
+    }
+    .fade {
+      background: linear-gradient(
+        to bottom,
+        hsl(var(--primary) / 60%) 0%,
+        hsl(var(--primary) / 90%) 25%
+      );
+      height: 100px;
+      margin: -2rem;
+      position: relative;
+    }
+    .filters {
+      justify-content: space-between;
+    }
   }
 </style>
