@@ -64,7 +64,7 @@ const headerLinks = [
         headerLinks.map((link, idx) => (
           <li class="menu__item" 
             style= {idx % 2 ?`--x: -70; --y:${20+10*idx};`  : `--x: -25; --y: ${20+10*idx};`};>
-            <a class={"menu__link "} href={link.url}>
+            <a class={"menu__link "+link.style} href={link.url}>
               {link.name}
             </a>
           </li>
@@ -187,6 +187,15 @@ background: linear-gradient(to bottom, hsla(var(--primary)/ 50%), hsla(var(--pri
   }
 
   @media (width < 768px) {
+  .accent {
+    color: inherit;
+    background-color: inherit;
+  }
+  .accent:hover {
+    background-color: inherit;
+    color: inherit;
+  }
+
     header {
       align-items: baseline;
     }
