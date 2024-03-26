@@ -26,6 +26,7 @@ const socialAcounts = [
     src={import("../assets/incup.png")}
     alt={"incup logo with coffe dicoration"}
   />
+  <h2>Meet OUR Buisness partner</h2>
   <p>
     In the heart of 6th of October, InCup Coffee stands as a beacon of
     excellence in the world of beverages and desserts. We are more than just a
@@ -58,13 +59,9 @@ const socialAcounts = [
   .incup {
     background: #c54136;
     margin-inline: -2rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
   }
-  p {
-    flex: 1;
+  p,
+  h2 {
     min-width: min(350px, 100%);
     padding: 0rem 2rem;
     text-wrap: balance;
@@ -72,11 +69,6 @@ const socialAcounts = [
   .incup img {
     width: 100vw;
     height: auto;
-  }
-  /* TODO: research why strong selector is not working */
-  strong,
-  .bold {
-    font-weight: 700;
   }
   ul {
     display: flex;
