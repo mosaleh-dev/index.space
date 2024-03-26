@@ -7,12 +7,14 @@ import img2 from "../assets/HeroImages/2.jpg";
 import img2Lqip from "../assets/HeroImages/2.jpg?lqip";
 import img3 from "../assets/HeroImages/3.jpg";
 import img3Lqip from "../assets/HeroImages/3.jpg?lqip";
+import img4 from "../assets/HeroImages/4.jpeg";
+import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
 ---
 
 <section id="home" class="carousel" aria-labelledby="carouselheading">
   <!-- TODO:add heading for sr and alt text -->
   <ul>
-    <li id="slide-1">
+    <li id="image-1">
       <Image
         src={img1}
         alt="Index October branch Reciption"
@@ -22,7 +24,7 @@ import img3Lqip from "../assets/HeroImages/3.jpg?lqip";
         }}
       />
     </li>
-    <li id="slide-2">
+    <li id="image-2">
       <Image
         src={img2}
         alt="Index October branch shared area "
@@ -32,7 +34,7 @@ import img3Lqip from "../assets/HeroImages/3.jpg?lqip";
         }}
       />
     </li>
-    <li id="slide-3">
+    <li id="image-3">
       <Image
         src={img3}
         alt="Index October branch shared area "
@@ -42,11 +44,22 @@ import img3Lqip from "../assets/HeroImages/3.jpg?lqip";
         }}
       />
     </li>
+    <li id="image-4">
+      <Image
+        src={img4}
+        alt="Index October branch shared area "
+        style={{
+          backgroundImage: `url("${img4Lqip.lqip}")`,
+          backgroundSize: "cover",
+        }}
+      />
+    </li>
   </ul>
   <div class="slider-nav">
-    <a href="#slide-1" aria-label="show slide 1"></a>
-    <a href="#slide-2" aria-label="show slide 2"></a>
-    <a href="#slide-3" aria-label="show slide 3"></a>
+    <a href="#image-1" aria-label="show image 1"></a>
+    <a href="#image-2" aria-label="show image 2"></a>
+    <a href="#image-3" aria-label="show image 3"></a>
+    <a href="#image-4" aria-label="show image 4"></a>
   </div>
 </section>
 <script></script>
