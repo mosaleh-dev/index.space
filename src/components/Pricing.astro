@@ -3,36 +3,37 @@ import { Icon } from "astro-icon/components";
 import PricingTable from "./PricingTable.astro"
 const prices = [
   {
-    heading: "shared area",
+    heading: "Shared area",
     benefits: [
-      "qiet and active",
-      "free wifi access",
+      "Quiet and active",
+      "Free wifi access",
       "Free Hot drink*",
       "24 hours from entry",
     ],
-    notice: ["not allowed to speek"],
+    notice: [],
     pricePeriod:"day",
     priceAmount:"50",
   },
   {
     heading: "Private Cabin",
     benefits: [
-      "fit 2 persons",
+      "Fit 2 people",
       "More privacy",
-      "Allowence for chatting",
-      "free wifi access",
+      "Chatting is allowed",
+      "Free wifi access",
+"Exclusive in October Branch"
     ],
-    notice: ["Exclusive in October Branch"],
+    notice: [],
     pricePeriod:"hour",
     priceAmount:"50",
   },
   {
-    heading: "Meating Room",
+    heading: "Meeting Room",
     benefits: [
       "Front desk services",
       "Data Projector",
-      "High reslution Monitor",
-      "Capacity up to 10 persons",
+      "High Resolution Monitor",
+      "Capacity up to 10 people",
     ],
     notice: [],
     pricePeriod:"hour",
@@ -440,7 +441,7 @@ details summary {
   padding: 0.5rem 1.5rem;
   position: relative;
   cursor: pointer;
-  font-weight: 300;
+  font-weight: 700;
   list-style: none;
   color: hsl(var(--primary)/70%);
 }
