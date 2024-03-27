@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 //import like this because i have not figured out how to dynamic import with lqip with vite
 import img1 from "../assets/HeroImages/1.png";
 import img1Lqip from "../assets/HeroImages/1.png?lqip";
@@ -12,11 +12,13 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
 ---
 
 <section id="home" class="carousel" aria-labelledby="carouselheading">
-  <!-- TODO:add heading for sr and alt text -->
+  <!-- TODO: <!-- TODO:stop lazy for first image add heading for sr and alt-->
   <ul>
     <li id="image-1">
-      <Image
+      <Picture
+        formats={["avif", "webp"]}
         src={img1}
+        loading="eager"
         alt="Index October branch Reciption"
         style={{
           backgroundImage: `url("${img1Lqip.lqip}")`,
@@ -25,7 +27,8 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
       />
     </li>
     <li id="image-2">
-      <Image
+      <Picture
+        formats={["avif", "webp"]}
         src={img2}
         alt="Index October branch shared area "
         style={{
@@ -35,7 +38,8 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
       />
     </li>
     <li id="image-3">
-      <Image
+      <Picture
+        formats={["avif", "webp"]}
         src={img3}
         alt="Index October branch shared area "
         style={{
@@ -45,7 +49,8 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
       />
     </li>
     <li id="image-4">
-      <Image
+      <Picture
+        formats={["avif", "webp"]}
         src={img4}
         alt="Index October branch shared area "
         style={{
@@ -75,7 +80,6 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-    border-radius: 0.5rem;
     -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
     scrollbar-width: none; /* Hide scrollbar Firefox */
     max-height: 100vh;
@@ -85,6 +89,7 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
     flex: 1 0 100%;
     scroll-snap-align: start;
   }
+  picture,
   img {
     width: 100%;
     height: 100%;
