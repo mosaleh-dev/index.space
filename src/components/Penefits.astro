@@ -31,12 +31,12 @@ const benefits = [
       "Recharge your creativity at our coffee corner, offering the finest brews to enhance your focus and productivity throughout the day.",
     icon: "material-symbols:coffee-maker-outline-rounded",
   },
-  // {
-  //   name: "Praying Area",
-  //   description:
-  //     "Catering to diverse needs, our coworking space includes a dedicated praying area, ensuring a respectful and inclusive environment for all. Find peace in our inclusive praying area, designed for spiritual moments that bring calm and focus to your workday.",
-  //   icon: "material-symbols:prayer-times-outline",
-  // },
+  {
+    name: "Praying Area",
+    description:
+      "Our coworking space includes a dedicated prayer area for all, fostering peace and focus in your workday.",
+    icon: "material-symbols:prayer-times-outline",
+  },
   // {
   //   name: "Modern Design",
   //   description:
@@ -49,12 +49,12 @@ const benefits = [
       "Take rejuvenating breaks in our comfortable rest area, designed to offer a retreat for relaxation, fostering a healthy work-life balance.",
     icon: "material-symbols:chair-outline",
   },
-  // {
-  //   name: "24 Hours",
-  //   description:
-  //     "Enjoy the flexibility of a 24-hour coworking space, accommodating your work schedule and ensuring you have access whenever inspiration strikes.",
-  //   icon: "",
-  // },
+  {
+    name: "24 Hours",
+    description:
+      "Enjoy the flexibility of a 24-hour coworking space, accommodating your work schedule and ensuring you have access whenever inspiration strikes.",
+    icon: "mdi:clock-outline",
+  },
 ];
 ---
 
@@ -105,5 +105,10 @@ const benefits = [
     list-style: none;
     padding: 0.5 rem;
     width: min(98%, 300px);
+  }
+  @media (max-width: 668px) {
+    li {
+      width: min(98%, 200px);
+    }
   }
 </style>
