@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev --host",
+    "dev": "npx tinacms dev -c 'astro dev --port 8080'",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -16,9 +16,12 @@
     "astro": "^4.4.1",
     "astro-icon": "^1.1.0",
     "astro-tabs": "^0.1.8",
+    "tinacms": "^2.5.0",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@tinacms/cli": "^1.6.12",
+    "@types/node": "^22.10.1",
     "autoprefixer": "^10.4.17",
     "open-props": "^1.6.18",
     "postcss": "^8.4.35",
