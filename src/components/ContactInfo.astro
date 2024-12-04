@@ -2,6 +2,8 @@
 import { Icon } from "astro-icon/components";
 import { Tabs } from "astro-tabs";
 import { Image } from "astro:assets";
+import data from "../../content/global/index.json";
+const contactInfo = data.contactInfo;
 ---
 
 <Tabs class="contact_tabs">
@@ -13,12 +15,12 @@ import { Image } from "astro:assets";
       <dt>
         <Icon name={"material-symbols:phone-android"} />Phone:
       </dt>
-      <dd><a href="tel:+01501553864">01501553864</a></dd>
+      <dd><a href={`tel:+0${contactInfo.october_phone}`}>0{contactInfo.october_phone}</a></dd>
       <dt>
         <Icon name={"material-symbols:mail-rounded"} />Email:
       </dt>
       <dd>
-        <a href="email:indexworkspace@gmail.com">indexworkspace@gmail.com</a>
+        <a href={`mailto:${contactInfo.october_email}`}>{contactInfo.october_email}</a>
       </dd>
     </dl>
     <a href="https://maps.app.goo.gl/6CQAyZ8zthmeqSVV7">
@@ -34,12 +36,12 @@ import { Image } from "astro:assets";
       <dt>
         <Icon name={"material-symbols:phone-android"} />Phone:
       </dt>
-      <dd><a href="tel:+0502366881">0502366881</a></dd>
+      <dd><a href={`tel:+0${contactInfo.mansoura_phone}`}>0{contactInfo.mansoura_phone}</a></dd>
       <dt>
         <Icon name={"material-symbols:mail-rounded"} />Email:
       </dt>
       <dd>
-        <a href="email:indexworkspace@gmail.com">indexworkspace@gmail.com</a>
+        <a href={`mailto:${contactInfo.mansoura_email}`}>{contactInfo.mansoura_email}</a>
       </dd>
     </dl>
     <a href="https://maps.app.goo.gl/NyUDZR2Jrs2jwY7Y9">

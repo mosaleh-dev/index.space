@@ -1,45 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 import PricingTable from "./PricingTable.astro"
-const prices = [
-  {
-    heading: "Shared area",
-    benefits: [
-      "Quiet and active",
-      "Free wifi access",
-      "Free Hot drink*",
-      "24 hours from entry",
-    ],
-    notice: [],
-    pricePeriod:"day",
-    priceAmount:"50",
-  },
-  {
-    heading: "Private Cabin",
-    benefits: [
-      "Fit 2 people",
-      "More privacy",
-      "Chatting is allowed",
-      "Free wifi access",
-"Exclusive in October Branch"
-    ],
-    notice: [],
-    pricePeriod:"hour",
-    priceAmount:"50",
-  },
-  {
-    heading: "Meeting Room",
-    benefits: [
-      "Front desk services",
-      "Data Projector",
-      "High Resolution Monitor",
-      "Capacity up to 10 people",
-    ],
-    notice: [],
-    pricePeriod:"hour",
-    priceAmount:"50",
-  },
-];
+import data from "../../content/global/index.json";
+const priceCardsInfo = data.priceCardsInfo;
 ---
 
 <section id="pricing" >
@@ -47,7 +10,7 @@ const prices = [
     <h2>Pricing</h2>
     <ul class="cs-card-group">
 
-{prices.map((price)=>(
+{priceCardsInfo.map((price)=>(
       <li class="cs-item">
 
         <div class="cs-flex">

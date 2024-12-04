@@ -1,198 +1,81 @@
 ---
 import { Tabs } from "astro-tabs";
+
+import data from "../../content/pricing/index.json";
+const pricingData = data;
 ---
 
 <Tabs>
   <Fragment slot="tab-1">October</Fragment>
   <Fragment slot="tab-2">Mansoura</Fragment>
 
-  <!-- TODO:Make Pricing Dynamic  -->
   <Fragment slot="panel-1">
-    <table>
-      <thead>
-        <tr>
-          <th colspan="3">Shared Space Packages</th>
-        </tr>
-        <tr>
-          <th>Hours</th>
-          <th>Price </th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>12</td>
-          <td>70 L.E</td>
-          <td>Free wifi</td>
-        </tr>
-        <tr>
-          <td>24</td>
-          <td>100 L.E</td>
-          <td
-            >Free Wifi , Hot Drink<br />
-            24 Hours from entry time</td
-          >
-        </tr>
-      </tbody>
-    </table>
-    <br />
-    <table>
-      <thead>
-        <tr>
-          <th colspan="3">Shared Space Supscription</th>
-        </tr>
-        <tr>
-          <th>days </th>
-          <th>Valid for</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>7 days</td>
-          <td>10 days</td>
-          <td>595 L.E</td>
-        </tr>
-        <tr>
-          <td>15 days</td>
-          <td>20 days</td>
-          <td>1100 L.E</td>
-        </tr>
-        <tr>
-          <td>30 days</td>
-          <td>40 days</td>
-          <td>1950 L.E</td>
-        </tr>
-      </tbody>
-    </table>
-    <br />
-    <table>
-      <thead>
-        <tr>
-          <th colspan="3">Cabin</th>
-        </tr>
-        <tr>
-          <th>Hours</th>
-          <th>Price </th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>70 L.E</td>
-          <td>Free wifi</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td>595 L.E</td>
-          <td>Free wifi</td>
-        </tr>
-      </tbody>
-    </table>
-    <br />
-    <table>
-      <thead>
-        <tr>
-          <th colspan="5">Meeting Rooms</th>
-        </tr>
-        <tr>
-          <th>Capacity</th>
-          <th>1 Hour </th>
-          <th>10 Hours </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>5 People</td>
-          <td>90 L.E</td>
-          <td>765 L.E</td>
-        </tr>
-        <tr>
-          <td>10 People</td>
-          <td>120 L.E</td>
-          <td>1020 L.E</td>
-        </tr>
-      </tbody>
-    </table>
+    {
+      Object.entries(pricingData.october).map(([key, table]) => (
+        <>
+          <table>
+            <thead>
+              <tr>
+                <th colspan={Object.keys(table.rows[0]).length}>
+                  {table.title}
+                </th>
+              </tr>
+              <tr>
+                {Object.keys(table.rows[0]).map((header) => (
+                  <th>{header}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {table.rows.map((row) => (
+                <tr>
+                  {Object.values(row).map((value) => (
+                    <td>{Array.isArray(value) ? value.join(", ") : value}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <br />
+        </>
+      ))
+    }
   </Fragment>
 
   <Fragment slot="panel-2">
-    <!-- Mansoura Branch -->
-    <table>
-      <thead>
-        <tr>
-          <th colspan="3">Shared Space Packages</th>
-        </tr>
-        <tr>
-          <th>Hours</th>
-          <th>Price </th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>15 L.E</td>
-          <td>Free wifi</td>
-        </tr>
-        <tr>
-          <td>24</td>
-          <td>60 L.E</td>
-          <td> 24 Hours from entry time</td>
-        </tr>
-      </tbody>
-    </table>
-    <br />
-    <table>
-      <thead>
-        <tr>
-          <th colspan="3">Shared Space Supscription</th>
-        </tr>
-        <tr>
-          <th>days </th>
-          <th>Valid for</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>7 days</td>
-          <td>10 days</td>
-          <td>385 L.E</td>
-        </tr>
-        <tr>
-          <td>15 days</td>
-          <td>20 days</td>
-          <td>785 L.E</td>
-        </tr>
-        <tr>
-          <td>30 days</td>
-          <td>40 days</td>
-          <td>1500 L.E</td>
-        </tr>
-      </tbody>
-    </table>
-    <br />
-    <table>
-      <thead>
-        <tr>
-          <th colspan="3">Meeting Rooms</th>
-        </tr>
-        <tr>
-          <th>Capacity</th>
-          <th>Hours</th>
-          <th>Price </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>10 People</td>
-          <td>1 Hour</td>
-          <td>50 L.E</td>
-        </tr>
-      </tbody>
-    </table>
+    {
+      Object.entries(pricingData.mansoura).map(([key, table]) => (
+        <>
+          <table>
+            <thead>
+              <tr>
+                <th colspan={Object.keys(table.rows[0]).length}>
+                  {table.title}
+                </th>
+              </tr>
+              <tr>
+                {Object.keys(table.rows[0]).map((header) => (
+                  <th>
+                    {header.charAt(0).toUpperCase() +
+                      header.slice(1).replace(/([A-Z])/g, " $1")}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {table.rows.map((row) => (
+                <tr>
+                  {Object.values(row).map((value) => (
+                    <td>{Array.isArray(value) ? value.join(", ") : value}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <br />
+        </>
+      ))
+    }
   </Fragment>
 </Tabs>
 

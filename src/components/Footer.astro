@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import data from "../../content/global/index.json";
+const socialAcounts = data.socials;
 const navLinks = [
   {
     name: "Home",
@@ -20,23 +22,6 @@ const navLinks = [
     name: "Contact Me",
     url: "#contact",
     style: "primary",
-  },
-];
-const socialAcounts = [
-  {
-    name: "Insta",
-    url: "https://www.instagram.com/indexcoworkingspace/",
-    iconName: "mdi:instagram",
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com/Indexcoworkingspace/",
-    iconName: "mdi:facebook",
-  },
-  {
-    name: "Twitter",
-    url: "https://twitter.com/indexworkspace",
-    iconName: "mdi:twitter",
   },
 ];
 ---

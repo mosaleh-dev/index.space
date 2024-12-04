@@ -1,5 +1,7 @@
 ---
 import ContactInfo from "./ContactInfo.astro";
+import data from "../../content/global/index.json";
+const contactInfo = data.contactInfo;
 ---
 
 <h2>Contact Us</h2>
@@ -7,7 +9,13 @@ import ContactInfo from "./ContactInfo.astro";
   <div class="contact-info">
     <ContactInfo />
   </div>
-  <form id="contact_form" name="ContactForm" method="post">
+  <form 
+    id="contact_form" 
+    name="ContactForm" 
+    method="post"
+    data-mansoura-wa={contactInfo.mansoura_wa}
+    data-october-wa={contactInfo.october_wa}
+  >
     <fieldset>
       <legend>Contact Information</legend>
 
@@ -65,18 +73,29 @@ import ContactInfo from "./ContactInfo.astro";
 </section>
 
 <script>
+  import ContactInfo from "./ContactInfo.astro";
+
   document
     .getElementById("contact_form")
     ?.addEventListener("submit", function (event) {
       event.preventDefault();
+      const form = event.currentTarget as HTMLFormElement;
       let selectedBranch =
         document
           .querySelector<HTMLElement>("#contact .tab-selector:checked ~ label")
           ?.innerText.trim() || "Mansoura";
+      
       const urls: Record<string, { link: string; identifier: string }> = {
-        October: { link: "wa.me", identifier: "+201501553864" },
-        Mansoura: { link: "m.me", identifier: "indexCoworkingspace" },
+        October: { 
+          link: "wa.me", 
+          identifier: form.dataset.octoberWa || "" 
+        },
+        Mansoura: { 
+          link: "wa.me", 
+          identifier: form.dataset.mansouraWa || "" 
+        },
       };
+      
       //@ts-expect-error
       const formData = new FormData(this);
       let url =
@@ -90,6 +109,7 @@ import ContactInfo from "./ContactInfo.astro";
         formData.get("name") +
         "%0a" +
         formData.get("email");
+      
       window?.open(url, "_blank")?.focus();
     });
 </script>

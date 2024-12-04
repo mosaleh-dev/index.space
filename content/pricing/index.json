@@ -1,0 +1,116 @@
+{
+  "october": {
+    "sharedSpacePackages": {
+      "title": "Shared Space Packages",
+      "rows": [
+        {
+          "hours": 12,
+          "price": "70 L.E",
+          "notes": "Free wifi"
+        },
+        {
+          "hours": 24,
+          "price": "100 L.E",
+          "notes": ["Free Wifi", "Hot Drink", "24 Hours from entry time"]
+        }
+      ]
+    },
+    "sharedSpaceSubscriptions": {
+      "title": "Shared Space Subscription",
+      "rows": [
+        {
+          "days": 7,
+          "valid for": "10 days",
+          "price": "595 L.E"
+        },
+        {
+          "days": 15,
+          "valid for": "20 days",
+          "price": "1100 L.E"
+        },
+        {
+          "days": 30,
+          "valid for": "40 days",
+          "price": "1950 L.E"
+        }
+      ]
+    },
+    "cabin": {
+      "title": "Cabin",
+      "rows": [
+        {
+          "hours": 1,
+          "price": "70 L.E",
+          "notes": "Free wifi"
+        },
+        {
+          "hours": 10,
+          "price": "595 L.E",
+          "notes": "Free wifi"
+        }
+      ]
+    },
+    "meetingRooms": {
+      "title": "Meeting Rooms",
+      "rows": [
+        {
+          "capacity": "5 People",
+          "1 Hour": "90 L.E",
+          "10 Hours": "765 L.E"
+        },
+        {
+          "capacity": "10 People",
+          "1 Hour": "120 L.E",
+          "10 Hours": "1020 L.E"
+        }
+      ]
+    }
+  },
+  "mansoura": {
+    "sharedSpacePackages": {
+      "title": "Shared Space Packages",
+      "rows": [
+        {
+          "hours": 1,
+          "price": "15 L.E",
+          "notes": "Free wifi"
+        },
+        {
+          "hours": 24,
+          "price": "60 L.E",
+          "notes": "24 Hours from entry time"
+        }
+      ]
+    },
+    "sharedSpaceSubscriptions": {
+      "title": "Shared Space Subscription",
+      "rows": [
+        {
+          "days": 7,
+          "valid for": "10 days",
+          "price": "385 L.E"
+        },
+        {
+          "days": 15,
+          "valid for": "20 days",
+          "price": "785 L.E"
+        },
+        {
+          "days": 30,
+          "valid for": "40 days",
+          "price": "1500 L.E"
+        }
+      ]
+    },
+    "meetingRooms": {
+      "title": "Meeting Rooms",
+      "rows": [
+        {
+          "capacity": "10 People",
+          "hours": "1 Hour",
+          "price": "50 L.E"
+        }
+      ]
+    }
+  }
+}

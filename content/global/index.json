@@ -1,0 +1,108 @@
+{
+  "contactInfo": {
+    "mansoura_wa": 1501553863,
+    "mansoura_phone": 502366881,
+    "mansoura_email": "indexworkspace@gmail.com",
+    "october_wa": 1501553864,
+    "october_phone": 1501553864,
+    "october_email": "indexworkspace@gmail.com"
+  },
+  "socials": [
+    {
+      "name": "Insta",
+      "url": "https://www.instagram.com/indexcoworkingspace/",
+      "iconName": "mdi:instagram"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/Indexcoworkingspace/",
+      "iconName": "mdi:facebook"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/indexworkspace",
+      "iconName": "mdi:twitter"
+    }
+  ],
+  "benefits": [
+    {
+      "name": "Comfortable Chairs",
+      "discription": "Elevate your work experience with ergonomically designed, comfortable chairs ensuring both support and relaxation throughout your productive sessions.",
+      "icon": "material-symbols:chair-alt-outline-rounded"
+    },
+    {
+      "name": "Monitored by Cams",
+      "discription": "Your safety is our priority – our coworking space is equipped with 24/7 surveillance cameras to provide a secure and protected work environment.",
+      "icon": "material-symbols:visibility-lock-outline-rounded"
+    },
+    {
+      "name": "Fully Air-Conditioned",
+      "discription": "Stay comfortable and focused with our fully air-conditioned workspace, ensuring an optimal working environment regardless of the weather outside.",
+      "icon": "material-symbols:air-purifier-gen-outline-sharp"
+    },
+    {
+      "name": "Fast Internet Access",
+      "discription": "Stay connected seamlessly with high-speed internet access, enabling you to work efficiently and collaborate effortlessly.",
+      "icon": "material-symbols:speed-outline-rounded"
+    },
+    {
+      "name": "Coffee Corner",
+      "discription": "Recharge your creativity at our coffee corner, offering the finest brews to enhance your focus and productivity throughout the day.",
+      "icon": "material-symbols:coffee-maker-outline-rounded"
+    },
+    {
+      "name": "Praying Area",
+      "discription": "Our coworking space includes a dedicated prayer area for all, fostering peace and focus in your workday.",
+      "icon": "material-symbols:prayer-times-outline"
+    },
+    {
+      "name": "Rest Area",
+      "discription": "Take rejuvenating breaks in our comfortable rest area, designed to offer a retreat for relaxation, fostering a healthy work-life balance.",
+      "icon": "material-symbols:chair-outline"
+    },
+    {
+      "name": "24 Hours",
+      "discription": "Enjoy the flexibility of a 24-hour coworking space, accommodating your work schedule and ensuring you have access whenever inspiration strikes.",
+      "icon": "mdi:clock-outline"
+    }
+  ],
+  "priceCardsInfo": [
+    {
+      "heading": "Shared area",
+      "pricePeriod": "day",
+      "priceAmount": "50",
+      "benefits": [
+        "Quiet and active",
+        "Free wifi access",
+        "Free Hot drink*",
+        "24 hours from entry"
+      ],
+      "notice": []
+    },
+    {
+      "heading": "Private Cabin",
+      "pricePeriod": "hour",
+      "priceAmount": "50",
+      "benefits": [
+        "Fit 2 people",
+        "More privacy",
+        "Chatting is allowed",
+        "Free wifi access",
+        "Exclusive in October Branch"
+      ],
+      "notice": []
+    },
+    {
+      "heading": "Meeting Room",
+      "pricePeriod": "hour",
+      "priceAmount": "50",
+      "benefits": [
+        "Front desk services",
+        "Data Projector",
+        "High Resolution Monitor",
+        "Capacity up to 10 people"
+      ],
+      "notice": []
+    }
+  ]
+}
