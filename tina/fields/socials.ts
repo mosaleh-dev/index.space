@@ -4,7 +4,7 @@ export const socialsFields = {
   type: "object",
   list: true,
   ui: {
-    itemProps: (item) => {
+    itemProps: (item: any) => {
       return { label: item.name };
     },
   },

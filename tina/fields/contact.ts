@@ -3,7 +3,7 @@ export const contactsField = {
   label: "contact",
   type: "object",
   ui: {
-    itemProps: (item) => {
+    itemProps: (item: any) => {
       return { label: item.name };
     },
   },

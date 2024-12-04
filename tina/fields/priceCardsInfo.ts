@@ -4,7 +4,7 @@ export const priceCardInfoFields = {
   type: "object",
   list: true,
   ui: {
-    itemProps: (item) => {
+    itemProps: (item: any) => {
       return { label: item.heading };
     },
   },
