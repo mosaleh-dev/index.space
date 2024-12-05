@@ -1,26 +1,33 @@
 ---
-import { Image } from "astro:assets";
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../assets/Services/*.{jpeg,jpg,png,gif}",
-);
+import { Picture } from "astro:assets";
+import sharedImg from "../assets/Services/shared.jpg";
+import sharedImgLqip from "../assets/Services/shared.jpg?lqip";
+import cabinImg from "../assets/Services/cabin.jpg";
+import cabinImgLqip from "../assets/Services/cabin.jpg?lqip";
+import roomImg from "../assets/Services/room.jpg";
+import roomImgLqip from "../assets/Services/room.jpg?lqip";
+
 const services = [
   {
     name: "Shared area",
-    image: "/shared.jpg",
+    image: sharedImg,
+    imageLqip: sharedImgLqip,
     alt: "Spacious shared workspace area with modern furniture and collaborative environment",
     description: "Open-plan workspace perfect for individuals and small teams, featuring high-speed internet and ergonomic furniture",
     priceRange: "50 EGP/day"
   },
   {
     name: "Cabin",
-    image: "/cabin.jpg",
+    image: cabinImg,
+    imageLqip: cabinImgLqip,
     alt: "Private cabin workspace designed for focused work and small meetings",
     description: "Private enclosed workspace ideal for 2 people, offering privacy and quiet environment",
     priceRange: "50 EGP/hour"
   },
   {
     name: "Meeting room",
-    image: "/room.jpg",
+    image: roomImg,
+    imageLqip: roomImgLqip,
     alt: "Professional meeting room equipped with modern presentation facilities",
     description: "Fully equipped meeting space with projector and whiteboard, perfect for team meetings and presentations",
     priceRange: "50 EGP/hour"
@@ -34,9 +41,14 @@ const services = [
     {
       services.map((service) => (
         <li class="benefit">
-          <Image
-            src={images["../assets/Services" + service.image]()}
+          <Picture
+            formats={["avif", "webp"]}
+            src={service.image}
             alt={service.alt}
+            style={{
+              backgroundImage: `url("${service.imageLqip.lqip}")`,
+              backgroundSize: "cover",
+            }}
           />
           <h3>{service.name}</h3>
         </li>
