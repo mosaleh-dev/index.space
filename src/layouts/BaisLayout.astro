@@ -1,10 +1,9 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-}
-
 const { title, description } = Astro.props;
+
+ const  site= process.env.SITE || "http://localhost:8080";
+const canonicalURL = new URL(Astro.url.pathname, site);
+const siteName = "Index Coworking Space";
 ---
 
 <!doctype html>
@@ -17,12 +16,49 @@ const { title, description } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+    
+    <title>{title} | Index Coworking Space</title>
+    <meta name="title" content={`${title} | Index Coworking Space`} />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    
+    <meta name="keywords" content="coworking space, mansoura coworking, october coworking, shared office space, workspace mansoura, workspace october, business center, meeting rooms, private offices, index workspace" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Index Coworking Space`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={`${title} | Index Coworking Space`} />
+    <meta property="twitter:description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Index Coworking Space",
+        "description": "High-end coworking space in Mansoura and October offering comfortable workspaces, meeting rooms, and premium amenities for professionals and businesses.",
+        "url": "https://indexworkspace.com",
+        "telephone": "+20502366881",
+        "sameAs": [
+          "https://www.facebook.com/Indexcoworkingspace/",
+          "https://www.instagram.com/indexcoworkingspace/",
+          "https://twitter.com/indexworkspace"
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "opens": "00:00",
+          "closes": "23:59"
+
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        }
+      }
+    </script>
   </head>
   <body>
     <slot />
