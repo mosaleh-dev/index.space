@@ -16,6 +16,10 @@ const siteName = "Index Coworking Space";
       href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="canonicalURL"
+      href={Astro.site?.toString() || "localhost:8080"}
+    />
 
     <title>{title} | Index Coworking Space</title>
     <meta name="title" content={`${title} | Index Coworking Space`} />
