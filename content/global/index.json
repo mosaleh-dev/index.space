@@ -104,5 +104,28 @@
       ],
       "notice": []
     }
+  ],
+
+  "incupSocialAcounts": [
+    {
+      "name": "Insta",
+      "url": "https://www.instagram.com/incupcoffee._/",
+      "iconName": "mdi:instagram"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/incup.coffee.co",
+      "iconName": "mdi:facebook"
+    },
+    {
+      "name": "whatsapp",
+      "url": "https://wa.me/+201601553863",
+      "iconName": "mdi:whatsapp"
+    },
+    {
+      "name": "menu",
+      "url": "https://drive.google.com/file/d/1tQbkTVMYcIr0LZTvr69pd7ilpvT5hbP5/view?usp=drive_link",
+      "iconName": "material-symbols:menu-book-outline"
+    }
   ]
 }
