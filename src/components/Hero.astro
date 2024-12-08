@@ -96,6 +96,39 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
 </section>
 
 <script></script>
+<script>
+  if ("IntersectionObserver" in window) {
+    const carousel = document.querySelector(".carousel-container ul");
+    const navLinks = document.querySelectorAll(".slider-nav a");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            navLinks.forEach((link) => {
+              link.setAttribute("aria-selected", "false");
+            });
+            const targetId = entry.target.id;
+            const activeLink = document.querySelector(
+              `.slider-nav a[href="#${targetId}"]`,
+            );
+            if (activeLink) {
+              activeLink.setAttribute("aria-selected", "true");
+            }
+          }
+        });
+      },
+      {
+        root: carousel,
+        threshold: 0.5,
+        rootMargin: "0px",
+      },
+    );
+
+    document.querySelectorAll(".carousel-container li").forEach((item) => {
+      observer.observe(item);
+    });
+  }
+</script>
 
 <style>
   section {
@@ -151,6 +184,11 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
     height: 3rem;
     top: -250%;
     cursor: pointer;
+  }
+
+  .slider-nav a[aria-selected="true"] {
+    opacity: 1;
+    background-color: hsl(var(--accent));
   }
 
   .slider-nav a:hover {
