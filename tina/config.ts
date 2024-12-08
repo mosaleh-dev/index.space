@@ -13,12 +13,6 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "public",
   },
-  media: {
-    tina: {
-      mediaRoot: "/src/assets/",
-      publicFolder: "public",
-    },
-  },
   schema: {
     //@ts-ignore
     collections: [globalCollection, pricingCollection],
