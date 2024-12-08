@@ -6,6 +6,15 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    inlineStylesheets: "always",
+  },
+  image: {
+    experimentalLayout: "responsive",
+  },
+  experimental: {
+    responsiveImages: true,
+  },
   site: process.env.SITE || "http://localhost:8080",
   vite: {
     plugins: [lqip()],

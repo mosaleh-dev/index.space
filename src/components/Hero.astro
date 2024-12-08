@@ -24,7 +24,10 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
         <Picture
           formats={["avif", "webp"]}
           src={img1}
+          densities={[1.5, 2]}
           loading="eager"
+          fetchpriority="high"
+          decoding="sync"
           alt="Modern reception area at Index October branch with sleek design and welcoming atmosphere"
           style={{
             backgroundImage: `url("${img1Lqip.lqip}")`,
@@ -37,6 +40,7 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
           formats={["avif", "webp"]}
           src={img2}
           alt="Spacious shared workspace area with ergonomic furniture and natural lighting"
+          loading="lazy"
           style={{
             backgroundImage: `url("${img2Lqip.lqip}")`,
             backgroundSize: "cover",
@@ -48,6 +52,7 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
           formats={["avif", "webp"]}
           src={img3}
           alt="Collaborative workspace setup with modern amenities and comfortable seating"
+          loading="lazy"
           style={{
             backgroundImage: `url("${img3Lqip.lqip}")`,
             backgroundSize: "cover",
@@ -58,6 +63,7 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
         <Picture
           formats={["avif", "webp"]}
           src={img4}
+          loading="lazy"
           alt="Professional meeting area with contemporary design and tech-ready facilities"
           style={{
             backgroundImage: `url("${img4Lqip.lqip}")`,
@@ -95,7 +101,6 @@ import img4Lqip from "../assets/HeroImages/4.jpeg?lqip";
   </div>
 </section>
 
-<script></script>
 <script>
   if ("IntersectionObserver" in window) {
     const carousel = document.querySelector(".carousel-container ul");
