@@ -13,6 +13,29 @@ export default defineConfig({
   integrations: [
     icon({
       iconDir: "src/icons",
+      include: {
+        mdi: [
+          "instagram",
+          "twitter",
+          "clock-outline",
+          "instagram",
+          "facebook",
+          "whatsapp",
+          "check-circle-outline",
+        ],
+        "material-symbols": [
+          "phone-android",
+          "mail-rounded",
+          "chair-alt-outline-rounded",
+          "visibility-lock-outline-rounded",
+          "air-purifier-gen-outline-sharp",
+          "menu-book-outline",
+          "chair-outline",
+          "prayer-times-outline",
+          "coffee-maker-outline-rounded",
+          "speed-outline-rounded",
+        ],
+      },
     }),
     sitemap(),
   ],
