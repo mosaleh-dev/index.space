@@ -6,12 +6,18 @@
         {
           "hours": 12,
           "price": "70 L.E",
-          "notes": "Free wifi"
+          "notes": [
+            "Free wifi"
+          ]
         },
         {
           "hours": 24,
           "price": "100 L.E",
-          "notes": ["Free Wifi", "Hot Drink", "24 Hours from entry time"]
+          "notes": [
+            "Free Wifi",
+            "Hot Drink",
+            "24 Hours from entry time"
+          ]
         }
       ]
     },
@@ -108,7 +114,7 @@
         {
           "capacity": "10 People",
           "hours": "1 Hour",
-          "price": "50 L.E"
+          "price": "120 L.E"
         }
       ]
     }
